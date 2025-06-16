@@ -68,7 +68,7 @@ body {
     position: fixed; /* Fijo en la pantalla */
     z-index: 1000;
     top: 0;
-    left: -250px; /* OCULTO por defecto, igual a su ancho */
+    left: 0px; /* OCULTO por defecto, igual a su ancho */
     background-color: #5dbbcb8c; /* Un azul ligeramente diferente */
     overflow-x: hidden; /* Evita barras de desplazamiento horizontales */
     transition: left 0.5s ease; /* Transición suave al abrir/cerrar */
@@ -168,7 +168,7 @@ footer {
 @media screen and (max-width: 768px) {
     /* En pantallas pequeñas: */
     .menu-toggle {
-        display: block; /* Muestra el botón de hamburguesa */
+        display: none; /* Muestra el botón de hamburguesa */
     }
 
     .sidebar {
@@ -183,9 +183,10 @@ footer {
 
     /* Ajustes para #content en móviles para que sea fluido */
     #content {
+        margin-left: 250px;
         width: auto; /* Permite que el contenido sea fluido */
         padding: 20px; /* Ajusta padding para móviles */
-        margin: 20px auto; /* Margen para que no toque los bordes y se centre */
+        margin-top: 20px; /* Margen para que no toque los bordes y se centre */
     }
 }
 

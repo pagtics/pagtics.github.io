@@ -64,7 +64,7 @@ body {
 /* --- MENÚ LATERAL (SIDEBAR) --- */
 .sidebar {
     height: 100%;
-    width: 250px; /* Ancho fijo de la barra lateral cuando está abierta */
+    width: 200px; /* Ancho fijo de la barra lateral cuando está abierta */
     position: fixed; /* Fijo en la pantalla */
     z-index: 1000;
     top: 0;
@@ -76,16 +76,6 @@ body {
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
 }
 
-/* --- REGLA CLAVE: MOSTRAR EL SIDEBAR CUANDO EL CHECKBOX ESTÁ MARCADO --- */
-/* Cuando el checkbox está marcado, el sidebar se mueve a la posición visible */
-/* Asegúrate de que el .sidebar sea un hermano del checkbox en el HTML */
-.menu-toggle-checkbox:checked ~ .sidebar {
-    left: 0; /* Muestra la barra en pantalla */
-}
-
-/* --- BOTÓN DE CERRAR EN EL SIDEBAR (NUEVO Y OPCIONAL) --- */
-/* Debes añadir esto DENTRO de <nav class="sidebar"> en tu HTML:
-   <label for="menu-toggle-checkbox" class="sidebar-close-btn"><i class="fas fa-times"></i></label> */
 .sidebar-close-btn {
     position: absolute;
     top: 15px; /* Ajusta la posición vertical */

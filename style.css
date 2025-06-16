@@ -1,0 +1,264 @@
+/* --- ESTILOS BÁSICOS Y TIPOGRAFÍA --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    margin: 0;
+    color: #000000;
+    font-size: 18px;
+    line-height: 1.6;
+    /* Fondo con gradiente y imagen */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://letsrebold.com/wp-content/uploads/2023/05/Historia-del-internet.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    overflow-x: hidden; /* Evita el scroll horizontal al mover el sidebar */
+}
+
+/* --- HEADER SUPERIOR --- */
+.top-header {
+    background-color: #145c6b; /* Azul oscuro */
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    position: relative; /* Necesario para posicionar el botón de toggle dentro */
+    z-index: 1002; /* Para que esté por encima de la barra lateral */
+}
+
+.top-header h1 {
+    margin: 0;
+    font-size: 2em;
+    flex-grow: 1; /* Permite que el título ocupe espacio */
+    text-align: center; /* Centrar el título */
+}
+
+/* --- CHECKBOX OCULTO (ELEMENTO CLAVE PARA CSS PURO) --- */
+/* Debes añadir esto en tu HTML, preferiblemente justo antes del <header>:
+   <input type="checkbox" id="menu-toggle-checkbox" class="menu-toggle-checkbox"> */
+.menu-toggle-checkbox {
+    display: none; /* Oculta completamente el checkbox */
+}
+
+/* --- BOTÓN DE HAMBURGUESA (AHORA ES UN <label> EN HTML) --- */
+/* Debes cambiar tu <button> a <label> en HTML:
+   <label for="menu-toggle-checkbox" class="menu-toggle"><i class="fas fa-bars"></i></label> */
+.menu-toggle {
+    color: white;
+    font-size: 1.8em;
+    cursor: pointer;
+    z-index: 1001; /* Asegura que esté por encima del menú */
+    position: absolute; /* Para posicionarlo libremente dentro del header */
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%); /* Centra verticalmente */
+    display: block; /* Asegura que se muestre como un bloque */
+}
+
+/* Asegura que el clic en el icono active el label, no el icono en sí */
+.menu-toggle i {
+    pointer-events: none;
+}
+
+/* --- MENÚ LATERAL (SIDEBAR) --- */
+.sidebar {
+    height: 100%;
+    width: 250px; /* Ancho fijo de la barra lateral cuando está abierta */
+    position: fixed; /* Fijo en la pantalla */
+    z-index: 1000;
+    top: 0;
+    left: -250px; /* OCULTO por defecto, igual a su ancho */
+    background-color: #5dbbcb8c; /* Un azul ligeramente diferente */
+    overflow-x: hidden; /* Evita barras de desplazamiento horizontales */
+    transition: left 0.5s ease; /* Transición suave al abrir/cerrar */
+    padding-top: 60px; /* Espacio para el header si se superpone */
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* --- REGLA CLAVE: MOSTRAR EL SIDEBAR CUANDO EL CHECKBOX ESTÁ MARCADO --- */
+/* Cuando el checkbox está marcado, el sidebar se mueve a la posición visible */
+/* Asegúrate de que el .sidebar sea un hermano del checkbox en el HTML */
+.menu-toggle-checkbox:checked ~ .sidebar {
+    left: 0; /* Muestra la barra en pantalla */
+}
+
+/* --- BOTÓN DE CERRAR EN EL SIDEBAR (NUEVO Y OPCIONAL) --- */
+/* Debes añadir esto DENTRO de <nav class="sidebar"> en tu HTML:
+   <label for="menu-toggle-checkbox" class="sidebar-close-btn"><i class="fas fa-times"></i></label> */
+.sidebar-close-btn {
+    position: absolute;
+    top: 15px; /* Ajusta la posición vertical */
+    right: 20px; /* Ajusta la posición horizontal */
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 100; /* Asegura que sea clickeable */
+}
+
+/* Asegura que el clic en el icono active el label */
+.sidebar-close-btn i {
+    pointer-events: none;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li a {
+    padding: 15px 20px;
+    text-decoration: none;
+    font-size: 1.1em;
+    color: #e0eaff; /* Un blanco azulado para los enlaces */
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #1e4654; /* Azul más oscuro al pasar el ratón */
+    color: white;
+}
+
+/* --- CONTENIDO PRINCIPAL (#content) --- */
+/* Asume que tu contenido principal está dentro de un div con id="content" */
+#content {
+    transition: margin-left .5s; /* Para mover el contenido cuando el menú se abre */
+    margin-left: 0; /* Por defecto, no hay margen */
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: rgba(97, 199, 194, 0.333);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.815);
+    border-radius: 8px;
+}
+
+/* REGLA CLAVE: Mover el contenido cuando el checkbox está marcado */
+/* Asegúrate de que #content sea un hermano del checkbox en el HTML.
+   Si el checkbox está fuera del header y el sidebar, esta regla funcionará. */
+.menu-toggle-checkbox:checked ~ #content {
+    margin-left: 250px; /* Mueve el contenido para dejar espacio al sidebar */
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+section h2 {
+    font-size: 25px;
+    color: #071341;
+    border-bottom: 2px solid #254d92a4;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: #145c6b;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px;
+    position: relative;
+    width: 100%;
+    color: #fff;
+}
+
+/* --- DISEÑO RESPONSIVO --- */
+@media screen and (max-width: 768px) {
+    /* En pantallas pequeñas: */
+    .menu-toggle {
+        display: block; /* Muestra el botón de hamburguesa */
+    }
+
+    .sidebar {
+        /* Sus propiedades de width y left ya están manejadas por .menu-toggle-checkbox:checked */
+        padding-top: 60px; /* Asegura espacio para el header si es fijo */
+    }
+
+    /* El contenido se mueve solo si el sidebar está abierto */
+    .menu-toggle-checkbox:checked ~ #content {
+        margin-left: 250px; /* Mueve el contenido cuando el menú está abierto */
+    }
+
+    /* Ajustes para #content en móviles para que sea fluido */
+    #content {
+        width: auto; /* Permite que el contenido sea fluido */
+        padding: 20px; /* Ajusta padding para móviles */
+        margin: 20px auto; /* Margen para que no toque los bordes y se centre */
+    }
+}
+
+@media screen and (min-width: 769px) {
+    /* En pantallas grandes (escritorio): */
+    .sidebar {
+        width: 250px; /* Menú lateral siempre visible */
+        position: fixed; /* Mantiene la posición fija */
+        left: 0;
+        top: 0;
+        height: 100%;
+        padding-top: 15px; /* Ajustar el padding top si el header no lo cubre */
+    }
+
+    /* El contenido principal siempre tiene margen para el sidebar */
+    #content {
+        margin-left: 270px; /* Margen para el contenido para dejar espacio al sidebar */
+        padding: 20px;
+        margin-top: 20px; /* Ajustar margen superior si el header es fijo */
+    }
+
+    .menu-toggle {
+        display: none; /* Oculta el botón en escritorio */
+    }
+
+    .top-header {
+        justify-content: center; /* Centrar el título si no hay botón */
+    }
+}
+
+/* --- ESTILOS DE IMAGEN --- */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.imagen {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- ESTILOS DE COMENTARIOS / FORMULARIO --- */
+#comentarios {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #ebebebb9;
+    border-radius: 10px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #000000b9;
+    border-radius: 5px;
+    resize: vertical; /* Permite redimensionar verticalmente */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+}
+
+button {
+    background-color: #47a59fae;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px; /* Bordes ligeramente redondeados para los botones */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición al pasar el ratón */
+}
+
+button:hover {
+    background-color: #3b8a85; /* Color más oscuro al pasar el ratón */
+}

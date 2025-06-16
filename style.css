@@ -54,11 +54,7 @@ body {
     top: 50%;
     transform: translateY(-50%); /* Centra verticalmente */
     display: block; /* Asegura que se muestre como un bloque */
-}
 
-/* Asegura que el clic en el icono active el label, no el icono en sí */
-.menu-toggle i {
-    pointer-events: none;
 }
 
 /* --- MENÚ LATERAL (SIDEBAR) --- */
@@ -83,12 +79,7 @@ body {
     color: white;
     font-size: 28px;
     cursor: pointer;
-    z-index: 100; /* Asegura que sea clickeable */
-}
 
-/* Asegura que el clic en el icono active el label */
-.sidebar-close-btn i {
-    pointer-events: none;
 }
 
 .sidebar ul {
@@ -179,7 +170,7 @@ footer {
 
     /* El contenido principal siempre tiene margen para el sidebar */
     #content {
-        margin-left: 200px; /* Margen para el contenido para dejar espacio al sidebar */
+        margin-left: 260px; /* Margen para el contenido para dejar espacio al sidebar */
         padding: 20px;
         margin-top: 20px; /* Ajustar margen superior si el header es fijo */
     }

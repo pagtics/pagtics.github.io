@@ -134,13 +134,6 @@ body {
     border-radius: 8px;
 }
 
-/* REGLA CLAVE: Mover el contenido cuando el checkbox está marcado */
-/* Asegúrate de que #content sea un hermano del checkbox en el HTML.
-   Si el checkbox está fuera del header y el sidebar, esta regla funcionará. */
-.menu-toggle-checkbox:checked ~ #content {
-    margin-left: 250px; /* Mueve el contenido para dejar espacio al sidebar */
-}
-
 section {
     margin-bottom: 30px;
 }
@@ -174,11 +167,7 @@ footer {
     .sidebar {
         /* Sus propiedades de width y left ya están manejadas por .menu-toggle-checkbox:checked */
         padding-top: 60px; /* Asegura espacio para el header si es fijo */
-    }
 
-    /* El contenido se mueve solo si el sidebar está abierto */
-    .menu-toggle-checkbox:checked ~ #content {
-        margin-left: 250px; /* Mueve el contenido cuando el menú está abierto */
     }
 
     /* Ajustes para #content en móviles para que sea fluido */

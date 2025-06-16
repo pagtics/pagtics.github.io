@@ -152,11 +152,6 @@ footer {
     /* En pantallas pequeñas: */
     .menu-toggle {
         display: none; /* Muestra el botón de hamburguesa */
-    }
-
-    .sidebar {
-        /* Sus propiedades de width y left ya están manejadas por .menu-toggle-checkbox:checked */
-        padding-top: 60px; /* Asegura espacio para el header si es fijo */
 
     }
 
@@ -166,6 +161,8 @@ footer {
         width: auto; /* Permite que el contenido sea fluido */
         padding: 20px; /* Ajusta padding para móviles */
         margin-top: 20px; /* Margen para que no toque los bordes y se centre */
+        font-size: 17px;
+        line-height: 1.7;
     }
 }
 

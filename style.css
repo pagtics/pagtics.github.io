@@ -148,7 +148,7 @@ footer {
 
     /* Ajustes para #content en móviles para que sea fluido */
     #content {
-        margin-left: 190px;
+        margin-left: 200px;
         width: auto; /* Permite que el contenido sea fluido */
         padding: 20px; /* Ajusta padding para móviles */
         margin-top: 20px; /* Margen para que no toque los bordes y se centre */

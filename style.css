@@ -170,9 +170,9 @@ footer {
 
     /* El contenido principal siempre tiene margen para el sidebar */
     #content {
-        margin-left: 260px; /* Margen para el contenido para dejar espacio al sidebar */
-        padding: 20px;
-        margin-top: 20px; /* Ajustar margen superior si el header es fijo */
+        margin-left: 260px;/* Margen para el contenido para dejar espacio al sidebar */
+        width: calc(100vw - 260px - 40px);
+        max-width:none;
     }
 
     .menu-toggle {
